@@ -1,0 +1,2451 @@
+{
+  "Unlock an issue": {
+    "name": "Unlock an issue",
+    "enabledForApps": true,
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/issues/:number/lock",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      }
+    ],
+    "description": "Users with push access can unlock an issue's conversation.",
+    "idName": "unlock",
+    "documentationUrl": "https://developer.github.com/v3/issues/#unlock-an-issue"
+  },
+  "Create an issue": {
+    "name": "Create an issue",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "The title of the issue.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The contents of the issue.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "assignee",
+        "type": "string",
+        "description": "Login for the user that this issue should be assigned to. _NOTE: Only users with push access can set the assignee for new issues. The assignee is silently dropped otherwise. **This field is deprecated.**_",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "milestone",
+        "type": "integer",
+        "description": "The `number` of the milestone to associate this issue with. _NOTE: Only users with push access can set the milestone for new issues. The milestone is silently dropped otherwise._",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "labels",
+        "type": "string[]",
+        "description": "Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "assignees",
+        "type": "string[]",
+        "description": "Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Any user with pull access to a repository can create an issue.",
+    "idName": "create",
+    "documentationUrl": "https://developer.github.com/v3/issues/#create-an-issue"
+  },
+  "Edit an issue": {
+    "name": "Edit an issue",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/issues/:number",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "The title of the issue.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The contents of the issue.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "assignee",
+        "type": "string",
+        "description": "Login for the user that this issue should be assigned to. **This field is deprecated.**",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "State of the issue. Either `open` or `closed`.",
+        "required": false,
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "milestone",
+        "type": "integer",
+        "description": "The `number` of the milestone to associate this issue with or `null` to remove current. _NOTE: Only users with push access can set the milestone for issues. The milestone is silently dropped otherwise._",
+        "required": false,
+        "allowNull": true,
+        "location": "body"
+      },
+      {
+        "name": "labels",
+        "type": "string[]",
+        "description": "Labels to associate with this issue. Pass one or more Labels to _replace_ the set of Labels on this Issue. Send an empty array (`[]`) to clear all Labels from the Issue. _NOTE: Only users with push access can set labels for issues. Labels are silently dropped otherwise._",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "assignees",
+        "type": "string[]",
+        "description": "Logins for Users to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this Issue. Send an empty array (`[]`) to clear all assignees from the Issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Issue owners and users with push access can edit an issue.",
+    "idName": "edit",
+    "documentationUrl": "https://developer.github.com/v3/issues/#edit-an-issue"
+  },
+  "Lock an issue": {
+    "name": "Lock an issue",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/issues/:number/lock",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "lock_reason",
+        "type": "string",
+        "description": "The reason for locking the issue or pull request conversation. Lock will fail if you don't use one of these reasons:  \n\\* `off-topic`  \n\\* `too heated`  \n\\* `resolved`  \n\\* `spam`",
+        "required": false,
+        "enum": [
+          "off-topic",
+          "too heated",
+          "resolved",
+          "spam"
+        ],
+        "location": "body"
+      }
+    ],
+    "description": "Users with push access can lock an issue or pull request's conversation.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"",
+    "idName": "lock",
+    "documentationUrl": "https://developer.github.com/v3/issues/#lock-an-issue"
+  },
+  "Add assignees to an issue": {
+    "name": "Add assignees to an issue",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/assignees",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "assignees",
+        "type": "string[]",
+        "description": "Usernames of people to assign this issue to. _NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise._",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.\n\nThis example adds two assignees to the existing `octocat` assignee.",
+    "idName": "add-assignees",
+    "documentationUrl": "https://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue"
+  },
+  "Create a comment": {
+    "name": "Create a comment",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/comments",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The text of the comment.",
+        "required": true,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "create-comment",
+    "documentationUrl": "https://developer.github.com/v3/issues/comments/#create-a-comment"
+  },
+  "Edit a comment": {
+    "name": "Edit a comment",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/issues/comments/:comment_id",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "comment_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The text of the comment.",
+        "required": true,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "edit-comment",
+    "documentationUrl": "https://developer.github.com/v3/issues/comments/#edit-a-comment"
+  },
+  "Create a label": {
+    "name": "Create a label",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/labels",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png \":strawberry:\"). For a full list of available emoji and codes, see [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/).",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "description": "The [hexadecimal color code](http://www.color-hex.com/) for the label, without the leading `#`.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A short description of the label.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "create-label",
+    "documentationUrl": "https://developer.github.com/v3/issues/labels/#create-a-label"
+  },
+  "Update a label": {
+    "name": "Update a label",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/labels/:current_name",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "current_name",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The new name of the label. Emoji can be added to label names, using either native emoji or colon-style markup. For example, typing `:strawberry:` will render the emoji ![:strawberry:](https://a248.e.akamai.net/assets.github.com/images/icons/emoji/unicode/1f353.png \":strawberry:\"). For a full list of available emoji and codes, see [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/).",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "description": "The [hexadecimal color code](http://www.color-hex.com/) for the label, without the leading `#`.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A short description of the label.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "update-label",
+    "documentationUrl": "https://developer.github.com/v3/issues/labels/#update-a-label"
+  },
+  "Add labels to an issue": {
+    "name": "Add labels to an issue",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/labels",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      }
+    ],
+    "description": "",
+    "idName": "add-labels",
+    "documentationUrl": "https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue"
+  },
+  "Replace all labels for an issue": {
+    "name": "Replace all labels for an issue",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/issues/:number/labels",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      }
+    ],
+    "description": "Sending an empty array (`[]`) will remove all Labels from the Issue.",
+    "idName": "replace-labels",
+    "documentationUrl": "https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue"
+  },
+  "Create a milestone": {
+    "name": "Create a milestone",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/milestones",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "The title of the milestone.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "The state of the milestone. Either `open` or `closed`.",
+        "default": "open",
+        "required": false,
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A description of the milestone.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "due_on",
+        "type": "string",
+        "description": "The milestone due date. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "create-milestone",
+    "documentationUrl": "https://developer.github.com/v3/issues/milestones/#create-a-milestone"
+  },
+  "Update a milestone": {
+    "name": "Update a milestone",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/milestones/:number",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "The title of the milestone.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "The state of the milestone. Either `open` or `closed`.",
+        "default": "open",
+        "required": false,
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A description of the milestone.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "due_on",
+        "type": "string",
+        "description": "The milestone due date. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "update-milestone",
+    "documentationUrl": "https://developer.github.com/v3/issues/milestones/#update-a-milestone"
+  },
+  "Create a repository project": {
+    "name": "Create a repository project",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/projects",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the project.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The body of the project.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "per_page",
+        "type": "integer",
+        "required": false,
+        "description": "Results per page (max 100)",
+        "default": 30,
+        "location": "query"
+      },
+      {
+        "name": "page",
+        "type": "integer",
+        "required": false,
+        "description": "Page number of the results to fetch.",
+        "default": 1,
+        "location": "query"
+      }
+    ],
+    "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
+    "idName": "create-repo",
+    "documentationUrl": "https://developer.github.com/v3/projects/#create-a-repository-project"
+  },
+  "Update a project": {
+    "name": "Update a project",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/projects/:project_id",
+    "params": [
+      {
+        "name": "project_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the project.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The body of the project.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "State of the project. Either `open` or `closed`.",
+        "required": false,
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "organization_permission",
+        "type": "string",
+        "description": "The permission level that all members of the project's organization will have on this project. If an organization member belongs to a team with a higher level of access or is a collaborator with a higher level of access, their permission level is not lowered by `organization_permission`. Updating a project's organization permission requires `admin` access to the project. Setting the organization permission is only available for organization projects.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "public",
+        "type": "boolean",
+        "description": "Sets visibility of the project within the organization. Updating a project's visibility requires `admin` access to the project. Setting visibility is only available for organization projects. Can be one of:  \n\\* `true` \\- Anyone that can view the organization can see the project.  \n\\* `false` \\- The project must be an organization project to set project visibility.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "per_page",
+        "type": "integer",
+        "required": false,
+        "description": "Results per page (max 100)",
+        "default": 30,
+        "location": "query"
+      },
+      {
+        "name": "page",
+        "type": "integer",
+        "required": false,
+        "description": "Page number of the results to fetch.",
+        "default": 1,
+        "location": "query"
+      }
+    ],
+    "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.",
+    "idName": "update",
+    "documentationUrl": "https://developer.github.com/v3/projects/#update-a-project"
+  },
+  "Create a project card": {
+    "name": "Create a project card",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/projects/columns/:column_id/cards",
+    "params": [
+      {
+        "name": "column_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "note",
+        "type": "string",
+        "description": "The card's note content. Only valid for cards without another type of content, so you must omit when specifying `content_id` and `content_type`.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "content_id",
+        "type": "integer",
+        "description": "The issue or pull request id you want to associate with this card. You can use the [List issues for a repository](https://developer.github.com/v3/issues/#list-issues-for-a-repository) and [List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests) endpoints to find this id.  \n**Note:** Depending on whether you use the issue id or pull request id, you will need to specify `Issue` or `PullRequest` as the `content_type`.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "content_type",
+        "type": "string",
+        "description": "**Required if you provide `content_id`**. The type of content you want to associate with this card. Use `Issue` when `content_id` is an issue id and use `PullRequest` when `content_id` is a pull request id.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/v3/pulls/#list-pull-requests)\" endpoint.",
+    "idName": "create-card",
+    "documentationUrl": "https://developer.github.com/v3/projects/cards/#create-a-project-card"
+  },
+  "Update a project card": {
+    "name": "Update a project card",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/projects/columns/cards/:card_id",
+    "params": [
+      {
+        "name": "card_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "note",
+        "type": "string",
+        "description": "The card's note content. Only valid for cards without another type of content, so this cannot be specified if the card already has a `content_id` and `content_type`.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "update-card",
+    "documentationUrl": "https://developer.github.com/v3/projects/cards/#update-a-project-card"
+  },
+  "Move a project card": {
+    "name": "Move a project card",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/projects/columns/cards/:card_id/moves",
+    "params": [
+      {
+        "name": "card_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "position",
+        "type": "string",
+        "description": "Can be one of `top`, `bottom`, or `after:<card_id>`, where `<card_id>` is the `id` value of a card in the same column, or in the new column specified by `column_id`.",
+        "required": true,
+        "enum": [
+          "top",
+          "bottom",
+          "after:<card_id>"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "column_id",
+        "type": "integer",
+        "description": "The `id` value of a column in the same project.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "move-card",
+    "documentationUrl": "https://developer.github.com/v3/projects/cards/#move-a-project-card"
+  },
+  "Create a project column": {
+    "name": "Create a project column",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/projects/:project_id/columns",
+    "params": [
+      {
+        "name": "project_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the column.",
+        "required": true,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "create-column",
+    "documentationUrl": "https://developer.github.com/v3/projects/columns/#create-a-project-column"
+  },
+  "Update a project column": {
+    "name": "Update a project column",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/projects/columns/:column_id",
+    "params": [
+      {
+        "name": "column_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The new name of the column.",
+        "required": true,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "update-column",
+    "documentationUrl": "https://developer.github.com/v3/projects/columns/#update-a-project-column"
+  },
+  "Move a project column": {
+    "name": "Move a project column",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/projects/columns/:column_id/moves",
+    "params": [
+      {
+        "name": "column_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "position",
+        "type": "string",
+        "description": "Can be one of `first`, `last`, or `after:<column_id>`, where `<column_id>` is the `id` value of a column in the same project.",
+        "required": true,
+        "enum": [
+          "first",
+          "last",
+          "after:<column_id>"
+        ],
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "move-column",
+    "documentationUrl": "https://developer.github.com/v3/projects/columns/#move-a-project-column"
+  },
+  "Create a pull request": {
+    "name": "Create a pull request",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "The title of the pull request.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "head",
+        "type": "string",
+        "description": "The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "description": "The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The contents of the pull request.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "maintainer_can_modify",
+        "type": "boolean",
+        "description": "Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.",
+    "idName": "create",
+    "documentationUrl": "https://developer.github.com/v3/pulls/#create-a-pull-request"
+  },
+  "create a Pull Request from an existing Issue by passing an Issue number ": {
+    "name": "create a Pull Request from an existing Issue by passing an Issue number ",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "issue",
+        "type": "integer",
+        "description": "The issue number in this repository to turn into a Pull Request.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "head",
+        "type": "string",
+        "description": "The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "description": "The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "maintainer_can_modify",
+        "type": "boolean",
+        "description": "Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.",
+    "idName": "create-from-issue-by-passing-issue-number",
+    "documentationUrl": "https://developer.github.com/v3/pulls/#create-a-pull-request"
+  },
+  "Update a pull request": {
+    "name": "Update a pull request",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/pulls/:number",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "The title of the pull request.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The contents of the pull request.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "State of this Pull Request. Either `open` or `closed`.",
+        "required": false,
+        "enum": [
+          "open",
+          "closed"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "description": "The name of the branch you want your changes pulled into. This should be an existing branch on the current repository. You cannot update the base branch on a pull request to point to another repository.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "maintainer_can_modify",
+        "type": "boolean",
+        "description": "Indicates whether [maintainers can modify](https://help.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note:** To open a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.",
+    "idName": "update",
+    "documentationUrl": "https://developer.github.com/v3/pulls/#update-a-pull-request"
+  },
+  "Merge a pull request (Merge Button)": {
+    "name": "Merge a pull request (Merge Button)",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/pulls/:number/merge",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "commit_title",
+        "type": "string",
+        "description": "Title for the automatic commit message.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "commit_message",
+        "type": "string",
+        "description": "Extra detail to append to automatic commit message.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "sha",
+        "type": "string",
+        "description": "SHA that pull request head must match to allow merge.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "merge_method",
+        "type": "string",
+        "description": "Merge method to use. Possible values are `merge`, `squash` or `rebase`. Default is `merge`.",
+        "required": false,
+        "enum": [
+          "merge",
+          "squash",
+          "rebase"
+        ],
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "merge-merge-button",
+    "documentationUrl": "https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button"
+  },
+  "Create a pull request review": {
+    "name": "Create a pull request review",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "commit_id",
+        "type": "string",
+        "description": "The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "**Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "event",
+        "type": "string",
+        "description": "The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://developer.github.com/v3/pulls/reviews/#submit-a-pull-request-review) when you are ready.",
+        "required": false,
+        "enum": [
+          "APPROVE",
+          "REQUEST_CHANGES",
+          "COMMENT"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "comments",
+        "type": "object[]",
+        "description": "Use the following table to specify the location, destination, and contents of the draft review comment.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "comments[].path",
+        "type": "string",
+        "description": "**Required.** The relative path to the file that necessitates a review comment.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "comments[].position",
+        "type": "integer",
+        "description": "**Required.** The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note below.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "comments[].body",
+        "type": "string",
+        "description": "**Required.** Text of the review comment.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note:** To comment on a specific line in a file, you need to first determine the _position_ of that line in the diff. The GitHub REST API v3 offers the `application/vnd.github.v3.diff` [media type](https://developer.github.com/v3/media/#commits-commit-comparison-and-pull-requests). To see a pull request diff, add this media type to the `Accept` header of a call to the [single pull request](https://developer.github.com/v3/pulls/#get-a-single-pull-request) endpoint.\n\nThe `position` value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.",
+    "idName": "create-review",
+    "documentationUrl": "https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review"
+  },
+  "Submit a pull request review": {
+    "name": "Submit a pull request review",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "review_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The body text of the pull request review",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "event",
+        "type": "string",
+        "description": "**Required.** The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. When you leave this blank, the API returns _HTTP 422 (Unrecognizable entity)_ and sets the review action state to `PENDING`, which means you will need to re-submit the pull request review using a review action.",
+        "required": false,
+        "enum": [
+          "APPROVE",
+          "REQUEST_CHANGES",
+          "COMMENT"
+        ],
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "submit-review",
+    "documentationUrl": "https://developer.github.com/v3/pulls/reviews/#submit-a-pull-request-review"
+  },
+  "Dismiss a pull request review": {
+    "name": "Dismiss a pull request review",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "review_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "description": "**Required.** The message for the pull request review dismissal",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note:** To dismiss a pull request review on a [protected branch](https://developer.github.com/v3/repos/branches/), you must be a repository administrator or be included in the list of people or teams who can dismiss pull request reviews.",
+    "idName": "dismiss-review",
+    "documentationUrl": "https://developer.github.com/v3/pulls/reviews/#dismiss-a-pull-request-review"
+  },
+  "Create a review request": {
+    "name": "Create a review request",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "reviewers",
+        "type": "string[]",
+        "description": "An array of user `login`s that will be requested.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "team_reviewers",
+        "type": "string[]",
+        "description": "An array of team `slug`s that will be requested.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "create-review-request",
+    "documentationUrl": "https://developer.github.com/v3/pulls/review_requests/#create-a-review-request"
+  },
+  "Edit": {
+    "name": "Edit",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the repository.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A short description of the repository.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "homepage",
+        "type": "string",
+        "description": "A URL with more information about the repository.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "private",
+        "type": "boolean",
+        "description": "Either `true` to make the repository private or `false` to make it public. Creating private repositories requires a paid GitHub account. Default: `false`.  \n**Note**: You will get a `422` error if the organization restricts [changing repository visibility](https://help.github.com/articles/repository-permission-levels-for-an-organization#changing-the-visibility-of-repositories) to organization owners and a non-owner tries to change the value of private. **Note**: You will get a `422` error if the organization restricts [changing repository visibility](https://help.github.com/articles/repository-permission-levels-for-an-organization#changing-the-visibility-of-repositories) to organization owners and a non-owner tries to change the value of private.",
+        "default": false,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "has_issues",
+        "type": "boolean",
+        "description": "Either `true` to enable issues for this repository or `false` to disable them.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "has_projects",
+        "type": "boolean",
+        "description": "Either `true` to enable projects for this repository or `false` to disable them. **Note:** If you're creating a repository in an organization that has disabled repository projects, the default is `false`, and if you pass `true`, the API returns an error.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "has_wiki",
+        "type": "boolean",
+        "description": "Either `true` to enable the wiki for this repository or `false` to disable it.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "default_branch",
+        "type": "string",
+        "description": "Updates the default branch for this repository.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "allow_squash_merge",
+        "type": "boolean",
+        "description": "Either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "allow_merge_commit",
+        "type": "boolean",
+        "description": "Either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "allow_rebase_merge",
+        "type": "boolean",
+        "description": "Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "archived",
+        "type": "boolean",
+        "description": "`true` to archive this repository. **Note**: You cannot unarchive repositories through the API.",
+        "default": false,
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "**Note**: To edit a repository's topics, use the [`topics` endpoint](#replace-all-topics-for-a-repository).",
+    "idName": "edit",
+    "documentationUrl": "https://developer.github.com/v3/repos/#edit"
+  },
+  "Replace all topics for a repository": {
+    "name": "Replace all topics for a repository",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/topics",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "names",
+        "type": "string[]",
+        "description": "An array of topics to add to the repository. Pass one or more topics to _replace_ the set of existing topics. Send an empty array (`[]`) to clear all topics from the repository.",
+        "required": true,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "replace-topics",
+    "documentationUrl": "https://developer.github.com/v3/repos/#replace-all-topics-for-a-repository"
+  },
+  "Create a commit comment": {
+    "name": "Create a commit comment",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/commits/:sha/comments",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "sha",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The contents of the comment.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "description": "Relative path of the file to comment on.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "position",
+        "type": "integer",
+        "description": "Line index in the diff to comment on.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "line",
+        "type": "integer",
+        "description": "**Deprecated**. Use **position** parameter instead. Line number in the file to comment on.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "create-commit-comment",
+    "documentationUrl": "https://developer.github.com/v3/repos/comments/#create-a-commit-comment"
+  },
+  "Update a commit comment": {
+    "name": "Update a commit comment",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/comments/:comment_id",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "comment_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "The contents of the comment",
+        "required": true,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "update-commit-comment",
+    "documentationUrl": "https://developer.github.com/v3/repos/comments/#update-a-commit-comment"
+  },
+  "Create a file": {
+    "name": "Create a file",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/contents/:path",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "description": "The content path.",
+        "required": true,
+        "location": "url"
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "description": "The commit message.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "description": "The new file content, Base64 encoded.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "branch",
+        "type": "string",
+        "description": "The branch name.",
+        "default": "the repository’s default branch (usually `master`)",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "committer",
+        "type": "object",
+        "description": "object containing information about the committer.",
+        "location": "body"
+      },
+      {
+        "name": "author",
+        "type": "object",
+        "description": "object containing information about the author.",
+        "location": "body"
+      }
+    ],
+    "description": "This method creates a new file in a repository\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
+    "idName": "create-file",
+    "documentationUrl": "https://developer.github.com/v3/repos/contents/#create-a-file"
+  },
+  "Update a file": {
+    "name": "Update a file",
+    "enabledForApps": true,
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/contents/:path",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "description": "The content path.",
+        "required": true,
+        "location": "url"
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "description": "The commit message.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "content",
+        "type": "string",
+        "description": "The updated file content, Base64 encoded.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "sha",
+        "type": "string",
+        "description": "The blob SHA of the file being replaced.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "branch",
+        "type": "string",
+        "description": "The branch name.",
+        "default": "the repository’s default branch (usually `master`)",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "committer",
+        "type": "object",
+        "description": "object containing information about the committer.",
+        "location": "body"
+      },
+      {
+        "name": "author",
+        "type": "object",
+        "description": "object containing information about the author.",
+        "location": "body"
+      }
+    ],
+    "description": "This method updates a file in a repository\n\nThe `author` section is optional and is filled in with the `committer` information if omitted. If the `committer` information is omitted, the authenticated user's information is used.\n\nYou must provide values for both `name` and `email`, whether you choose to use `author` or `committer`. Otherwise, you'll receive a `422` status code.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                          |\n| ----- | ------ | ---------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit  |\n| email | string | The email of the author (or committer) of the commit |",
+    "idName": "update-file",
+    "documentationUrl": "https://developer.github.com/v3/repos/contents/#update-a-file"
+  },
+  "Add a new deploy key": {
+    "name": "Add a new deploy key",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/keys",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "A name for the key.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "description": "The contents of the key.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "read_only",
+        "type": "boolean",
+        "description": "If `true`, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Here's how you can create a read-only deploy key:\n\n",
+    "idName": "add-deploy-key",
+    "documentationUrl": "https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key"
+  },
+  "Create a deployment": {
+    "name": "Create a deployment",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/deployments",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "ref",
+        "type": "string",
+        "description": "The ref to deploy. This can be a branch, tag, or SHA.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "task",
+        "type": "string",
+        "description": "Specifies a task to execute (e.g., `deploy` or `deploy:migrations`).",
+        "default": "deploy",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "auto_merge",
+        "type": "boolean",
+        "description": "Attempts to automatically merge the default branch into the requested ref, if it is behind the default branch.",
+        "default": true,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "required_contexts",
+        "type": "string[]",
+        "description": "The status contexts to verify against commit status checks. If this parameter is omitted, then all unique contexts will be verified before a deployment is created. To bypass checking entirely pass an empty array. Defaults to all unique contexts.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "payload",
+        "type": "string",
+        "description": "JSON payload with extra information about the deployment.",
+        "default": "\"\"",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "environment",
+        "type": "string",
+        "description": "Name for the target deployment environment (e.g., `production`, `staging`, `qa`).",
+        "default": "production",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "Short description of the deployment.",
+        "default": "\"\"",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "transient_environment",
+        "type": "boolean",
+        "description": "Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. **This parameter requires a custom media type to be specified. Please see more in the alert below.**",
+        "default": false,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "production_environment",
+        "type": "boolean",
+        "description": "Specifies if the given environment is one that end-users directly interact with. **This parameter requires a custom media type to be specified. Please see more in the alert below.**",
+        "default": "`true` when `environment` is `production` and `false` otherwise",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Deployments offer a few configurable parameters with sane defaults.\n\nThe `ref` parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.\n\nThe `environment` parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as `production`, `staging`, and `qa`. This allows for easy tracking of which environments had deployments requested. The default environment is `production`.\n\nThe `auto_merge` parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref _is_ behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.\n\nBy default, [commit statuses](https://developer.github.com/v3/repos/statuses) for every submitted context must be in a `success` state. The `required_contexts` parameter allows you to specify a subset of contexts that must be `success`, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.\n\nThe `payload` parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.\n\nThe `task` parameter is used by the deployment system to allow different execution paths. In the web world this might be `deploy:migrations` to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.\n\nUsers with `repo` or `repo_deployment` scopes can create a deployment for a given ref:\n\nA simple example putting the user and room into the payload to notify back to chat networks.\n\nA more advanced example specifying required commit statuses and bypassing auto-merging.\n\nThis error happens when the `auto_merge` option is enabled and when the default branch (in this case `master`), can't be merged into the branch that's being deployed (in this case `topic-branch`), due to merge conflicts.\n\nThis error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success` status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.",
+    "idName": "create-deployment",
+    "documentationUrl": "https://developer.github.com/v3/repos/deployments/#create-a-deployment"
+  },
+  "Create a deployment status": {
+    "name": "Create a deployment status",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "deployment_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "The state of the status. Can be one of `error`, `failure`, `inactive`, `pending`, or `success`. **The `inactive` state requires a custom media type to be specified. Please see more in the alert below.**",
+        "required": true,
+        "enum": [
+          "error",
+          "failure",
+          "inactive",
+          "pending",
+          "success"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "target_url",
+        "type": "string",
+        "description": "The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.",
+        "default": "\"\"",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "log_url",
+        "type": "string",
+        "description": "This is functionally equivalent to `target_url`. We will continue accept `target_url` to support legacy uses, but we recommend modifying this to the new name to avoid confusion. **This parameter requires a custom media type to be specified. Please see more in the alert below.**",
+        "default": "\"\"",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A short description of the status. Maximum length of 140 characters.",
+        "default": "\"\"",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "environment_url",
+        "type": "string",
+        "description": "Sets the URL for accessing your environment. **This parameter requires a custom media type to be specified. Please see more in the alert below.**",
+        "default": "\"\"",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "auto_inactive",
+        "type": "boolean",
+        "description": "Adds a new `inactive` status to all non-transient, non-production environment deployments with the same repository and environment name as the created status's deployment. **This parameter requires a custom media type to be specified. Please see more in the alert below.**",
+        "default": true,
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Users with push access can create deployment statuses for a given deployment:",
+    "idName": "create-deployment-status",
+    "documentationUrl": "https://developer.github.com/v3/repos/deployments/#create-a-deployment-status"
+  },
+  "Create a fork": {
+    "name": "Create a fork",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/forks",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "organization",
+        "type": "string",
+        "description": "Optional parameter to specify the organization name if forking into an organization.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Create a fork for the authenticated user.\n\nForking a Repository happens asynchronously. Therefore, you may have to wait a short period before accessing the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub support](https://github.com/contact).",
+    "idName": "create-fork",
+    "documentationUrl": "https://developer.github.com/v3/repos/forks/#create-a-fork"
+  },
+  "Perform a merge": {
+    "name": "Perform a merge",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/merges",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "description": "The name of the base branch that the head will be merged into.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "head",
+        "type": "string",
+        "description": "The head to merge. This can be a branch name or a commit SHA1.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "commit_message",
+        "type": "string",
+        "description": "Commit message to use for the merge commit. If omitted, a default message will be used.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "",
+    "idName": "perform-merge",
+    "documentationUrl": "https://developer.github.com/v3/repos/merging/#perform-a-merge"
+  },
+  "Request a page build": {
+    "name": "Request a page build",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pages/builds",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      }
+    ],
+    "description": "You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.\n\nBuild requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.",
+    "idName": "request-page-build",
+    "documentationUrl": "https://developer.github.com/v3/repos/pages/#request-a-page-build"
+  },
+  "Create a release": {
+    "name": "Create a release",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/releases",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "tag_name",
+        "type": "string",
+        "description": "The name of the tag.",
+        "required": true,
+        "location": "body"
+      },
+      {
+        "name": "target_commitish",
+        "type": "string",
+        "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists.",
+        "default": "the repository's default branch (usually `master`).",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the release.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "Text describing the contents of the tag.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "draft",
+        "type": "boolean",
+        "description": "`true` to create a draft (unpublished) release, `false` to create a published one.",
+        "default": false,
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "prerelease",
+        "type": "boolean",
+        "description": "`true` to identify the release as a prerelease. `false` to identify the release as a full release.",
+        "default": false,
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Users with push access to the repository can create a release.",
+    "idName": "create-release",
+    "documentationUrl": "https://developer.github.com/v3/repos/releases/#create-a-release"
+  },
+  "Edit a release": {
+    "name": "Edit a release",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/releases/:release_id",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "release_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "tag_name",
+        "type": "string",
+        "description": "The name of the tag.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "target_commitish",
+        "type": "string",
+        "description": "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists.",
+        "default": "the repository's default branch (usually `master`).",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The name of the release.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "body",
+        "type": "string",
+        "description": "Text describing the contents of the tag.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "draft",
+        "type": "boolean",
+        "description": "`true` makes the release a draft, and `false` publishes the release.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "prerelease",
+        "type": "boolean",
+        "description": "`true` to identify the release as a prerelease, `false` to identify the release as a full release.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Users with push access to the repository can edit a release.",
+    "idName": "edit-release",
+    "documentationUrl": "https://developer.github.com/v3/repos/releases/#edit-a-release"
+  },
+  "Upload a release asset": {
+    "name": "Upload a release asset",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": ":url",
+    "params": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "Content-Length",
+        "type": "integer",
+        "description": "The content size of the asset in bytes",
+        "required": true,
+        "location": "headers"
+      },
+      {
+        "name": "Content-Type",
+        "type": "string",
+        "description": "The content type of the asset. This should be set in the Header. Example: `\"application/zip\"`. For a list of acceptable types, refer this list of [media types](https://www.iana.org/assignments/media-types/media-types.xhtml).",
+        "required": true,
+        "location": "headers"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The file name of the asset. This should be set in a URI query parameter.",
+        "required": true,
+        "location": "query"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "description": "An alternate short description of the asset. Used in place of the filename. This should be set in a URI query parameter.",
+        "required": false,
+        "location": "query"
+      }
+    ],
+    "description": "This endpoint makes use of [a Hypermedia relation](https://developer.github.com/v3/#hypermedia) to determine which URL to access. This endpoint is provided by a URI template in [the release's API response](#get-a-single-release). You need to use an HTTP client which supports [SNI](http://en.wikipedia.org/wiki/Server_Name_Indication) to make calls to this endpoint.\n\nThe asset data is expected in its raw binary form, rather than JSON. Everything else about the endpoint is the same as the rest of the API. For example, you'll still need to pass your authentication to be able to upload an asset.\n\nSend the raw binary content of the asset as the request body.\n\nThis may leave an empty asset with a state of `\"new\"`. It can be safely deleted.",
+    "documentationUrl": "https://developer.github.com/v3/repos/releases/#upload-a-release-asset",
+    "isOverride": true,
+    "idName": "upload-release-asset"
+  },
+  "Edit a release asset": {
+    "name": "Edit a release asset",
+    "enabledForApps": true,
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/releases/assets/:asset_id",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "asset_id",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "The file name of the asset.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "description": "An alternate short description of the asset. Used in place of the filename.",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Users with push access to the repository can edit a release asset.",
+    "idName": "edit-release-asset",
+    "documentationUrl": "https://developer.github.com/v3/repos/releases/#edit-a-release-asset"
+  },
+  "Create a status": {
+    "name": "Create a status",
+    "enabledForApps": true,
+    "method": "POST",
+    "path": "/repos/:owner/:repo/statuses/:sha",
+    "params": [
+      {
+        "name": "owner",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "repo",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "sha",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "location": "url"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "description": "The state of the status. Can be one of `error`, `failure`, `pending`, or `success`.",
+        "required": true,
+        "enum": [
+          "error",
+          "failure",
+          "pending",
+          "success"
+        ],
+        "location": "body"
+      },
+      {
+        "name": "target_url",
+        "type": "string",
+        "description": "The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.  \nFor example, if your continuous integration system is posting build status, you would want to provide the deep link for the build output for this specific SHA:  \n`http://ci.example.com/user/repo/build/sha`",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "A short description of the status.",
+        "required": false,
+        "location": "body"
+      },
+      {
+        "name": "context",
+        "type": "string",
+        "description": "A string label to differentiate this status from the status of other systems.",
+        "default": "default",
+        "required": false,
+        "location": "body"
+      }
+    ],
+    "description": "Users with push access in a repository can create commit statuses for a given SHA.\n\nNote: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.",
+    "idName": "create-status",
+    "documentationUrl": "https://developer.github.com/v3/repos/statuses/#create-a-status"
+  }
+}

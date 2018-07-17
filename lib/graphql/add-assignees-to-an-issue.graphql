@@ -1,0 +1,7 @@
+addAssigneesToAnIssue: repository(owner: $owner, name: $repo) {
+  assignableUsers(first: 10) {
+    nodes {
+      login
+    }
+  }
+}
