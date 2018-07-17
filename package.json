@@ -12,7 +12,8 @@
     "dev": "nodemon --exec \"npm start\"",
     "start": "probot run ./index.js",
     "test": "jest",
-    "test:watch": "jest --watch --notify --notifyMode=change --coverage"
+    "test:watch": "jest --watch --notify --notifyMode=change --coverage",
+    "chaos": "node ./lib/create-chaos"
   },
   "dependencies": {
     "camelcase": "^5.0.0",
