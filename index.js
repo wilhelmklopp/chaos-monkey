@@ -29,7 +29,7 @@ module.exports = async (app) => {
   });
   app.on('installation.created', (context) => {
     // intentionally only select this one
-    const repository = context.payload.repositories.repositories_added[0];
+    const repository = context.payload.repositories[0];
     const { github } = context;
     const { installation } = context.payload;
     return createSafetyPR({ owner: installation.account.login, repo: repository.name, github });
